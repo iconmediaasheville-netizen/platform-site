@@ -188,3 +188,64 @@ code {
   border-radius: 4px;
   font-size: 0.9em;
 }
+
+.button-ref-page {
+  margin: 32px 0 40px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+
+.button-ref-page h2 {
+  margin-top: 0;
+  margin-bottom: 4px;
+}
+
+.button-ref-page > p.fine-print {
+  color: var(--muted);
+  font-size: 0.92rem;
+  margin-bottom: 20px;
+}
+
+dl.button-ref-list {
+  margin: 0;
+}
+
+dl.button-ref-list dt {
+  font-weight: 600;
+  color: var(--ink);
+  margin-top: 16px;
+  padding: 4px 10px;
+  background: var(--paper-alt);
+  border-left: 3px solid var(--accent);
+  border-radius: 3px;
+  display: inline-block;
+}
+
+dl.button-ref-list dd {
+  margin: 6px 0 0;
+  padding-left: 2px;
+  color: var(--ink);
+  font-size: 0.96rem;
+}
+
+.toc-box {
+  background: var(--paper-alt);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px 24px;
+  margin: 24px 0 8px;
+}
+
+.toc-box h2 { margin-top: 0; font-size: 1.05rem; }
+
+.toc-box ul {
+  columns: 2;
+  padding-left: 18px;
+  margin: 0;
+}
+
+.toc-box li { margin-bottom: 6px; font-size: 0.92rem; }
+
+@media (max-width: 600px) {
+  .toc-box ul { columns: 1; }
+}
