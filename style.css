@@ -249,3 +249,64 @@ dl.button-ref-list dd {
 @media (max-width: 600px) {
   .toc-box ul { columns: 1; }
 }
+
+/* "Built for any sport, any event" tile grid on the homepage — mixes real
+   race photos (proof it works) with simple icon tiles for sports we don't
+   have pilot photos of yet. */
+.sport-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 14px;
+  margin: 22px 0 10px;
+}
+
+.sport-tile {
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--paper-alt);
+}
+
+.sport-tile.photo img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  display: block;
+}
+
+.sport-tile-caption {
+  margin: 0;
+  padding: 10px 14px;
+  font-weight: 600;
+  font-size: 0.92rem;
+  color: var(--ink);
+}
+
+.sport-tile.icon-tile {
+  aspect-ratio: 4/3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-align: center;
+  padding: 12px;
+}
+
+.sport-tile.icon-tile svg {
+  width: 34px;
+  height: 34px;
+  stroke: var(--accent);
+}
+
+.sport-tile.icon-tile .sport-tile-caption {
+  padding: 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+p.sport-note {
+  color: var(--muted);
+  font-size: 0.88rem;
+  margin: 4px 0 0;
+}
