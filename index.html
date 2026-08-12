@@ -20,9 +20,11 @@
   </div>
 </header>
 
+
 <main>
   <h1>Built for Sports &amp; Event Photographers</h1>
   <p class="lede">A photo-selling platform designed for the people shooting races, tournaments, and meets — where finding "my photo" in a sea of thousands is the whole problem.</p>
+
 
   <h2>Built for any sport, any event</h2>
   <p>Bib search covers races and endurance events out of the box. Selfie search and gallery browsing work for anything — team sports, school photo days, meets, you name it.</p>
@@ -54,8 +56,12 @@
   </div>
   <p class="sport-note">Photos above are real shots from an actual race gallery on the platform — not stock. Team-sport shots will replace the icon tiles as more photographers join the pilot.</p>
 
+
   <h2>Why it's different</h2>
   <p>Most photographers piecing together a race-photo business end up stitching together a gallery platform, a separate bib-tagging tool, and a manual print-fulfillment process — three subscriptions, three logins, three things that can break. This platform is that entire stack, built as one product.</p>
+
+
+
 
   <ul class="feature-list">
     <li>
@@ -84,6 +90,7 @@
     </li>
   </ul>
 
+
   <h2>See it in action</h2>
   <p>A quick look at what a customer sees on a gallery page, and what runs behind the scenes on the admin side.</p>
   <div class="screenshot-grid">
@@ -97,16 +104,110 @@
     </figure>
   </div>
 
+
+  <p class="live-site-link">Want to click around yourself? <a href="https://www.iconmediaasheville3.com" target="_blank" rel="noopener">Browse the live site →</a></p>
+
   <div class="cta-box">
     <h2>Looking for a couple of photographers to try it out</h2>
     <p>A small pilot program — just a couple of spots — for sports or event photographers who'd like their own version of this site.</p>
-    <a class="button" href="mailto:iconmediaasheville@gmail.com?subject=Pilot%20program%20interest">Get in touch</a>
+    <button type="button" class="button" id="contact-open-btn">Get in touch</button>
   </div>
 </main>
+
 
 <footer class="site-footer">
   &copy; <span id="year"></span> Imassoft.com
 </footer>
 <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<div class="modal-overlay" id="contact-overlay">
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="contact-modal-title">
+    <button type="button" class="modal-close" id="contact-close-btn" aria-label="Close">&times;</button>
+    <h2 id="contact-modal-title">Get in touch</h2>
+    <p class="modal-lede">Tell us a bit about what you shoot and we'll follow up about the pilot program.</p>
+    <form id="contact-form" class="contact-form" action="https://formsubmit.co/Steve@iconmediaasheville.com" method="POST">
+      <input type="hidden" name="_subject" value="New pilot program inquiry">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+      <label>Name
+        <input type="text" name="name" required>
+      </label>
+      <label>Email
+        <input type="email" name="email" required>
+      </label>
+      <label>Phone <span class="optional">(optional)</span>
+        <input type="tel" name="phone">
+      </label>
+      <label>What do you shoot, and what would you like to know?
+        <textarea name="message" rows="4" required></textarea>
+      </label>
+      <button type="submit" class="button">Send</button>
+    </form>
+    <p class="contact-status" id="contact-status" role="status"></p>
+  </div>
+</div>
+
+<script>
+(function () {
+  var openBtn = document.getElementById('contact-open-btn');
+  var overlay = document.getElementById('contact-overlay');
+  var closeBtn = document.getElementById('contact-close-btn');
+  var form = document.getElementById('contact-form');
+  var statusEl = document.getElementById('contact-status');
+  var AJAX_URL = 'https://formsubmit.co/ajax/Steve@iconmediaasheville.com';
+
+  function openModal() {
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    var first = form.querySelector('input[name="name"]');
+    if (first) setTimeout(function () { first.focus(); }, 50);
+  }
+
+  function closeModal() {
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  openBtn.addEventListener('click', openModal);
+  closeBtn.addEventListener('click', closeModal);
+  overlay.addEventListener('click', function (e) {
+    if (e.target === overlay) closeModal();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && overlay.classList.contains('open')) closeModal();
+  });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (form.querySelector('[name="_honey"]').value) return;
+
+    var btn = form.querySelector('button[type="submit"]');
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+    statusEl.textContent = '';
+    statusEl.className = 'contact-status';
+
+    fetch(AJAX_URL, {
+      method: 'POST',
+      headers: { Accept: 'application/json' },
+      body: new FormData(form)
+    })
+      .then(function (r) { return r.json().then(function (data) { return { ok: r.ok, data: data }; }); })
+      .then(function (res) {
+        if (!res.ok) throw new Error((res.data && res.data.message) || 'Send failed');
+        form.reset();
+        form.hidden = true;
+        statusEl.textContent = "Thanks — that's on its way. We'll be in touch soon.";
+        statusEl.className = 'contact-status success';
+      })
+      .catch(function () {
+        statusEl.textContent = 'Something went wrong — mind emailing Steve@iconmediaasheville.com directly?';
+        statusEl.className = 'contact-status error';
+        btn.disabled = false;
+        btn.textContent = 'Send';
+      });
+  });
+})();
+</script>
 </body>
 </html>
