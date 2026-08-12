@@ -459,3 +459,45 @@ p.sport-note {
 
 .contact-status.success { color: #2e7d32; }
 .contact-status.error { color: #b3261e; }
+
+/* Mobile nav collapse for the site header (Home / Guide / Admin Reference / FAQ). */
+.nav-toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--ink);
+    cursor: pointer;
+    padding: 6px 8px;
+    line-height: 0;
+}
+
+@media (max-width: 640px) {
+    .site-header-inner {
+          flex-wrap: wrap;
+    }
+
+    .nav-toggle {
+          display: inline-flex;
+    }
+
+    .site-header-inner nav {
+          display: none;
+          flex-basis: 100%;
+          flex-direction: column;
+          margin-top: 14px;
+    }
+
+    .site-header-inner nav.open {
+          display: flex;
+    }
+
+    .site-header-inner nav a {
+          margin-left: 0;
+          padding: 12px 4px;
+          border-top: 1px solid var(--border);
+          font-size: 1rem;
+    }
+}
