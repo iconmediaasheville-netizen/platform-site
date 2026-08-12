@@ -11,7 +11,8 @@
 <header class="site-header">
   <div class="site-header-inner">
     <a class="brand" href="index.html">Imassoft</a>
-    <nav>
+        <button type="button" id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Menu"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+    <nav id="site-nav">
       <a href="index.html">Home</a>
       <a href="guide.html">Getting Started Guide</a>
       <a href="admin-reference.html">Admin Reference</a>
@@ -117,5 +118,16 @@
   &copy; <span id="year"></span> Imassoft.com
 </footer>
 <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-</body>
+<script>
+(function () {
+  var toggle = document.getElementById('nav-toggle');
+  var nav = document.getElementById('site-nav');
+  if (!toggle || !nav) return;
+  toggle.addEventListener('click', function () {
+    var isOpen = nav.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+})();
+</script>
+  </body>
 </html>
