@@ -9,125 +9,216 @@
 </head>
 <body>
 <header class="site-header">
-  <div class="site-header-inner">
-    <a class="brand" href="index.html">Imassoft</a>
-        <button type="button" id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Menu"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
-    <nav id="site-nav">
-      <a href="index.html">Home</a>
-      <a href="guide.html">Getting Started Guide</a>
-      <a href="admin-reference.html">Admin Reference</a>
-      <a href="faq.html">FAQ</a>
-    </nav>
-  </div>
+<div class="site-header-inner">
+<a class="brand" href="index.html">Imassoft</a>
+<button type="button" id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Menu"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+<nav id="site-nav">
+<a href="index.html">Home</a>
+<a href="guide.html">Getting Started Guide</a>
+<a href="admin-reference.html">Admin Reference</a>
+<a href="faq.html">FAQ</a>
+</nav>
+</div>
 </header>
 
 <main>
-  <h1>Questions Photographers Ask Before Choosing a Platform</h1>
-  <p class="lede">A reference for talking with sports and event photographers who are comparing this platform against Pixieset, ShootProof, SmugMug, Zenfolio, and dedicated bib-tagging add-ons like RaceTagger or TagMyRun.</p>
+<h1>Questions Photographers Ask Before Choosing a Platform</h1>
+<p class="lede">A reference for talking with sports and event photographers who are comparing this platform against Pixieset, ShootProof, SmugMug, Zenfolio, and dedicated bib-tagging add-ons like RaceTagger or TagMyRun.</p>
 
-  <h2>Cost</h2>
+<h2>Cost</h2>
 
-  <dl class="button-ref-list">
-    <dt>What's this going to cost me?</dt>
-    <dd>Pricing during the pilot is free — no monthly fee, and no commission on sales. Longer-term, the model is a flat rate rather than the tiered, feature-gated pricing the big gallery platforms use, so there's no ladder of plans to climb as the business grows.</dd>
+<dl class="button-ref-list">
+<dt>What's this going to cost me?</dt>
+<dd>Pricing during the pilot is free — no monthly fee, and no commission on sales. Longer-term, the model is a flat rate rather than the tiered, feature-gated pricing the big gallery platforms use, so there's no ladder of plans to climb as the business grows.</dd>
 
-    <dt>Will my bill go up as my photo library grows?</dt>
-    <dd>No. Pixieset gates price by storage (10GB up to unlimited, $10&ndash;$50/mo) and ShootProof gates it by photo count (1,500 up to 25,000 photos, $10&ndash;$30/mo, plus archive fees below their Unlimited tier). This platform offloads full-resolution originals to cloud storage automatically in the background &mdash; invisible to the customer, no forced upgrade, no "you've hit your limit" moment mid-season.</dd>
+<dt>Will my bill go up as my photo library grows?</dt>
+<dd>No. Pixieset gates price by storage (10GB up to unlimited, $10&ndash;$50/mo) and ShootProof gates it by photo count (1,500 up to 25,000 photos, $10&ndash;$30/mo, plus archive fees below their Unlimited tier). This platform offloads full-resolution originals to cloud storage automatically in the background &mdash; invisible to the customer, no forced upgrade, no "you've hit your limit" moment mid-season.</dd>
 
-    <dt>Do you take a cut of my sales?</dt>
-    <dd>No. Sales run through your own Stripe account directly &mdash; the platform never touches a transaction. Worth being fair here: Pixieset and SmugMug are also commission-free on their paid tiers, so this isn't unique to us, but it's a real point of contrast against marketplace-style competitors like FlashFrame, where the pricing model is transaction-based.</dd>
-  </dl>
+<dt>Do you take a cut of my sales?</dt>
+<dd>No. Sales run through your own Stripe account directly &mdash; the platform never touches a transaction. Worth being fair here: Pixieset and SmugMug are also commission-free on their paid tiers, so this isn't unique to us, but it's a real point of contrast against marketplace-style competitors like FlashFrame, where the pricing model is transaction-based.</dd>
+</dl>
 
-  <h2>Finding photos</h2>
+<h2>Finding photos</h2>
 
-  <dl class="button-ref-list">
-    <dt>How do customers find their own photos in a gallery of thousands?</dt>
-    <dd>Every photo is automatically scanned for a bib number the moment it's uploaded and tagged for search &mdash; no separate app, no manual tagging, no extra subscription. This is worth pointing out explicitly: tools like TagMyRun, RaceTagger, TrackAction.AI, and Tagily exist specifically because platforms like SmugMug, Zenfolio, and PhotoShelter don't do bib detection natively. A photographer on one of those platforms is, by definition, already paying for or manually running a second tool just to get this. Here it's built in from the start.</dd>
+<dl class="button-ref-list">
+<dt>How do customers find their own photos in a gallery of thousands?</dt>
+<dd>Every photo is automatically scanned for a bib number the moment it's uploaded and tagged for search &mdash; no separate app, no manual tagging, no extra subscription. This is worth pointing out explicitly: tools like TagMyRun, RaceTagger, TrackAction.AI, and Tagily exist specifically because platforms like SmugMug, Zenfolio, and PhotoShelter don't do bib detection natively. A photographer on one of those platforms is, by definition, already paying for or manually running a second tool just to get this. Here it's built in from the start.</dd>
 
-    <dt>What if a customer doesn't know their bib number?</dt>
-    <dd>They can upload a selfie and get matched to their own photos by face, powered by AWS Rekognition. None of the major general-purpose platforms (Pixieset, ShootProof, SmugMug, Zenfolio) offer this natively.</dd>
+<dt>What if a customer doesn't know their bib number?</dt>
+<dd>They can upload a selfie and get matched to their own photos by face, powered by AWS Rekognition. None of the major general-purpose platforms (Pixieset, ShootProof, SmugMug, Zenfolio) offer this natively.</dd>
 
-    <dt>Can customers search for a whole team or family at once?</dt>
-    <dd>Yes &mdash; several bib numbers can be searched at once, separated by commas, and the results can be shared as a single link. Handy for relay teams, families, or a coach checking on a whole roster.</dd>
-  </dl>
+<dt>Can customers search for a whole team or family at once?</dt>
+<dd>Yes &mdash; several bib numbers can be searched at once, separated by commas, and the results can be shared as a single link. Handy for relay teams, families, or a coach checking on a whole roster.</dd>
+</dl>
 
-  <h2>Race-specific features</h2>
+<h2>Race-specific features</h2>
 
-  <dl class="button-ref-list">
-    <dt>Can I sell photos with a sponsor or event logo on them?</dt>
-    <dd>Yes, automatically &mdash; a sponsor or event logo can be composited onto photos at full resolution, with the customer choosing to buy with or without the logo. This is a genuinely race-specific need (title sponsors, timing companies, local business sponsors) that general photo-gallery platforms have no concept of.</dd>
+<dl class="button-ref-list">
+<dt>Can I sell photos with a sponsor or event logo on them?</dt>
+<dd>Yes, automatically &mdash; a sponsor or event logo can be composited onto photos at full resolution, with the customer choosing to buy with or without the logo. This is a genuinely race-specific need (title sponsors, timing companies, local business sponsors) that general photo-gallery platforms have no concept of.</dd>
 
-    <dt>How do you handle print orders and shipping?</dt>
-    <dd>Saved print-lab profiles (name, address, logo) can be picked per order at fulfillment time, and that lab's exact address is what shows up on the customer's shipping confirmation email &mdash; not a generic site address. Tracking numbers and carrier info are captured, and the site flags the moment a print sells so it doesn't get missed.</dd>
-  </dl>
+<dt>How do you handle print orders and shipping?</dt>
+<dd>Saved print-lab profiles (name, address, logo) can be picked per order at fulfillment time, and that lab's exact address is what shows up on the customer's shipping confirmation email &mdash; not a generic site address. Tracking numbers and carrier info are captured, and the site flags the moment a print sells so it doesn't get missed.</dd>
+</dl>
 
-  <h2>Uploading &amp; reliability</h2>
+<h2>Uploading &amp; reliability</h2>
 
-  <dl class="button-ref-list">
-    <dt>What happens if my internet drops mid-upload of a few thousand race photos?</dt>
-    <dd>The desktop uploader app resumes automatically right where it left off &mdash; even after closing the app or restarting the computer &mdash; and safely skips anything that already made it through, so nothing gets duplicated. This matters in practice: outdoor race venues on spotty wifi are exactly where a normal browser upload is most likely to fail partway through.</dd>
+<dl class="button-ref-list">
+<dt>What happens if my internet drops mid-upload of a few thousand race photos?</dt>
+<dd>The desktop uploader app resumes automatically right where it left off &mdash; even after closing the app or restarting the computer &mdash; and safely skips anything that already made it through, so nothing gets duplicated. This matters in practice: outdoor race venues on spotty wifi are exactly where a normal browser upload is most likely to fail partway through.</dd>
 
-    <dt>What if a customer searches before their photos are uploaded yet?</dt>
-    <dd>They can leave their email and bib number for a "notify me" alert, and the site emails them automatically the moment a matching photo goes up &mdash; even days later.</dd>
+<dt>What if a customer searches before their photos are uploaded yet?</dt>
+<dd>They can leave their email and bib number for a "notify me" alert, and the site emails them automatically the moment a matching photo goes up &mdash; even days later.</dd>
 
-    <dt>What happens if someone starts checkout and doesn't finish?</dt>
-    <dd>An automated reminder email goes out with a one-click link that restores their exact cart. Standard e-commerce practice, but easy to underestimate and not something every small photography platform bothers to build.</dd>
-  </dl>
+<dt>What happens if someone starts checkout and doesn't finish?</dt>
+<dd>An automated reminder email goes out with a one-click link that restores their exact cart. Standard e-commerce practice, but easy to underestimate and not something every small photography platform bothers to build.</dd>
+</dl>
 
-  <h2>Trust &amp; maturity</h2>
+<h2>Trust &amp; maturity</h2>
 
-  <dl class="button-ref-list">
-    <dt>Is this a marketplace where I'm competing with other photographers for visibility?</dt>
-    <dd>No. Each customer gets their own standalone site &mdash; their own domain, their own Stripe account, their own admin login. It's not a listing inside someone else's marketplace, so there's no dependency on a third party's search ranking, marketplace fees, or policy changes to reach buyers.</dd>
+<dl class="button-ref-list">
+<dt>Is this a marketplace where I'm competing with other photographers for visibility?</dt>
+<dd>No. Each customer gets their own standalone site &mdash; their own domain, their own Stripe account, their own admin login. It's not a listing inside someone else's marketplace, so there's no dependency on a third party's search ranking, marketplace fees, or policy changes to reach buyers.</dd>
 
-    <dt>Is this a mature, established platform?</dt>
-    <dd>Being straightforward about this, since overselling erodes trust faster than an honest gap does: this is a newer, single-photographer-proven product, not a decade-old platform with a large support team, mobile app, or built-in marketplace traffic. Each pilot customer currently runs on an individually managed server rather than a fully self-serve sign-up product &mdash; a real trade-off (more hands-on setup) in exchange for the all-in-one feature set and no storage/photo-count cost ladder. That gap closes as the platform matures, but today's version is early-stage, not a finished competitor to companies that have been public for over a decade.</dd>
+<dt>Is this a mature, established platform?</dt>
+<dd>Being straightforward about this, since overselling erodes trust faster than an honest gap does: this is a newer, single-photographer-proven product, not a decade-old platform with a large support team, mobile app, or built-in marketplace traffic. Each pilot customer currently runs on an individually managed server rather than a fully self-serve sign-up product &mdash; a real trade-off (more hands-on setup) in exchange for the all-in-one feature set and no storage/photo-count cost ladder. That gap closes as the platform matures, but today's version is early-stage, not a finished competitor to companies that have been public for over a decade.</dd>
 
-    <dt>What kind of support do I get?</dt>
-    <dd>Direct access to the person who actually built the platform, rather than a ticket into a large company's support queue. Setup, changes, and troubleshooting go straight to Steve.</dd>
+<dt>What kind of support do I get?</dt>
+<dd>Direct access to the person who actually built the platform, rather than a ticket into a large company's support queue. Setup, changes, and troubleshooting go straight to Steve.</dd>
 
-    <dt>Can I give an assistant or second shooter their own login?</dt>
-    <dd>Yes &mdash; staff accounts with role-based permissions. Staff can do everything day-to-day except touch branding, print labs, or add other users; full admins can do everything.</dd>
-  </dl>
+<dt>Can I give an assistant or second shooter their own login?</dt>
+<dd>Yes &mdash; staff accounts with role-based permissions. Staff can do everything day-to-day except touch branding, print labs, or add other users; full admins can do everything.</dd>
+</dl>
 
-  <h2>Current competitor pricing, for reference</h2>
-  <table class="pricing-table">
-    <thead>
-      <tr><th>Platform</th><th>Entry price</th><th>Typical/mid tier</th><th>Top tier</th><th>What gates the price</th></tr>
-    </thead>
-    <tbody>
-      <tr><td>Pixieset</td><td>$10/mo (10GB)</td><td>$20&ndash;$30/mo (100GB&ndash;1TB)</td><td>$50/mo (unlimited)</td><td>Storage capacity</td></tr>
-      <tr><td>ShootProof</td><td>$10/mo (1,500 photos)</td><td>$20/mo (5,000 photos)</td><td>$30/mo (25,000 photos)</td><td>Photo count + archive fees below Unlimited</td></tr>
-      <tr><td>SmugMug</td><td>$20/mo annual (no selling)</td><td>$23.50/mo annual (selling on)</td><td>$37/mo annual</td><td>Feature tier (selling only on Portfolio+)</td></tr>
-      <tr><td>Zenfolio</td><td>$9/mo annual</td><td>$23/mo annual</td><td>$40/mo annual</td><td>Feature tier</td></tr>
-      <tr><td>This platform</td><td>Included</td><td>Included</td><td>Included</td><td>No storage/photo-count ceiling &mdash; flat, all features included</td></tr>
-    </tbody>
-  </table>
-  <p class="fine-print">Pricing checked August 2026 &mdash; worth spot-checking before quoting to a prospect, since SaaS pricing shifts often. None of the four general platforms include bib search, name search, selfie search, or logo compositing at any tier; those would be additional tools and additional monthly costs stacked on top of the prices above.</p>
+<h2>Current competitor pricing, for reference</h2>
+<table class="pricing-table">
+<thead>
+<tr><th>Platform</th><th>Entry price</th><th>Typical/mid tier</th><th>Top tier</th><th>What gates the price</th></tr>
+</thead>
+<tbody>
+<tr><td>Pixieset</td><td>$10/mo (10GB)</td><td>$20&ndash;$30/mo (100GB&ndash;1TB)</td><td>$50/mo (unlimited)</td><td>Storage capacity</td></tr>
+<tr><td>ShootProof</td><td>$10/mo (1,500 photos)</td><td>$20/mo (5,000 photos)</td><td>$30/mo (25,000 photos)</td><td>Photo count + archive fees below Unlimited</td></tr>
+<tr><td>SmugMug</td><td>$20/mo annual (no selling)</td><td>$23.50/mo annual (selling on)</td><td>$37/mo annual</td><td>Feature tier (selling only on Portfolio+)</td></tr>
+<tr><td>Zenfolio</td><td>$9/mo annual</td><td>$23/mo annual</td><td>$40/mo annual</td><td>Feature tier</td></tr>
+<tr><td>This platform</td><td>Included</td><td>Included</td><td>Included</td><td>No storage/photo-count ceiling &mdash; flat, all features included</td></tr>
+</tbody>
+</table>
+<p class="fine-print">Pricing checked August 2026 &mdash; worth spot-checking before quoting to a prospect, since SaaS pricing shifts often. None of the four general platforms include bib search, name search, selfie search, or logo compositing at any tier; those would be additional tools and additional monthly costs stacked on top of the prices above.</p>
 
-  <h2>The bottom line</h2>
-  <p>The pitch isn't any single feature &mdash; it's that a general gallery platform plus a separate bib-tagging tool plus a manual print-fulfillment process is what most race and event photographers are actually stitching together today. This is that entire stack, built as one product, with a photographer's actual workflow (bib search, selfie search, sponsor logos, print-lab shipping accuracy) designed in from the start rather than bolted on.</p>
+<h2>The bottom line</h2>
+<p>The pitch isn't any single feature &mdash; it's that a general gallery platform plus a separate bib-tagging tool plus a manual print-fulfillment process is what most race and event photographers are actually stitching together today. This is that entire stack, built as one product, with a photographer's actual workflow (bib search, selfie search, sponsor logos, print-lab shipping accuracy) designed in from the start rather than bolted on.</p>
 
-  <div class="cta-box">
-    <h2>Have a question that's not here?</h2>
-    <a class="button" href="mailto:iconmediaasheville@gmail.com?subject=Question%20about%20the%20platform">Get in touch</a>
-  </div>
+<div class="cta-box">
+<h2>Have a question that's not here?</h2>
+<button type="button" class="button" id="contact-open-btn">Get in touch</button>
+</div>
 </main>
 
 <footer class="site-footer">
-  &copy; <span id="year"></span> Imassoft.com
+&copy; <span id="year"></span> Imassoft.com
 </footer>
 <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<div class="modal-overlay" id="contact-overlay">
+<div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="contact-modal-title">
+<button type="button" class="modal-close" id="contact-close-btn" aria-label="Close">&times;</button>
+<h2 id="contact-modal-title">Get in touch</h2>
+<p class="modal-lede">Have a question that's not covered above? Ask away and we'll follow up.</p>
+<form id="contact-form" class="contact-form" action="https://formsubmit.co/Steve@iconmediaasheville.com" method="POST">
+<input type="hidden" name="_subject" value="New question from FAQ page">
+<input type="hidden" name="_template" value="table">
+<input type="hidden" name="_captcha" value="false">
+<input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+<label>Name
+<input type="text" name="name" required>
+</label>
+<label>Email
+<input type="email" name="email" required>
+</label>
+<label>Phone <span class="optional">(optional)</span>
+<input type="tel" name="phone">
+</label>
+<label>What do you shoot, and what would you like to know?
+<textarea name="message" rows="4" required></textarea>
+</label>
+<button type="submit" class="button">Send</button>
+</form>
+<p class="contact-status" id="contact-status" role="status"></p>
+</div>
+</div>
+
 <script>
 (function () {
-  var toggle = document.getElementById('nav-toggle');
-  var nav = document.getElementById('site-nav');
-  if (!toggle || !nav) return;
-  toggle.addEventListener('click', function () {
-    var isOpen = nav.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-  });
+var openBtn = document.getElementById('contact-open-btn');
+var overlay = document.getElementById('contact-overlay');
+var closeBtn = document.getElementById('contact-close-btn');
+var form = document.getElementById('contact-form');
+var statusEl = document.getElementById('contact-status');
+var AJAX_URL = 'https://formsubmit.co/ajax/Steve@iconmediaasheville.com';
+
+function openModal() {
+overlay.classList.add('open');
+document.body.style.overflow = 'hidden';
+var first = form.querySelector('input[name="name"]');
+if (first) setTimeout(function () { first.focus(); }, 50);
+}
+
+function closeModal() {
+overlay.classList.remove('open');
+document.body.style.overflow = '';
+}
+
+openBtn.addEventListener('click', openModal);
+closeBtn.addEventListener('click', closeModal);
+overlay.addEventListener('click', function (e) {
+if (e.target === overlay) closeModal();
+});
+document.addEventListener('keydown', function (e) {
+if (e.key === 'Escape' && overlay.classList.contains('open')) closeModal();
+});
+
+form.addEventListener('submit', function (e) {
+e.preventDefault();
+if (form.querySelector('[name="_honey"]').value) return;
+
+var btn = form.querySelector('button[type="submit"]');
+btn.disabled = true;
+btn.textContent = 'Sending...';
+statusEl.textContent = '';
+statusEl.className = 'contact-status';
+
+fetch(AJAX_URL, {
+method: 'POST',
+headers: { Accept: 'application/json' },
+body: new FormData(form)
+})
+.then(function (r) { return r.json().then(function (data) { return { ok: r.ok, data: data }; }); })
+.then(function (res) {
+if (!res.ok) throw new Error((res.data && res.data.message) || 'Send failed');
+form.reset();
+form.hidden = true;
+statusEl.textContent = "Thanks — that's on its way. We'll be in touch soon.";
+statusEl.className = 'contact-status success';
+})
+.catch(function () {
+statusEl.textContent = 'Something went wrong — mind emailing Steve@iconmediaasheville.com directly?';
+statusEl.className = 'contact-status error';
+btn.disabled = false;
+btn.textContent = 'Send';
+});
+});
 })();
 </script>
-  </body>
+<script>
+(function () {
+var toggle = document.getElementById('nav-toggle');
+var nav = document.getElementById('site-nav');
+if (!toggle || !nav) return;
+toggle.addEventListener('click', function () {
+var isOpen = nav.classList.toggle('open');
+toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+});
+})();
+</script>
+</body>
+</html>
 </html>
