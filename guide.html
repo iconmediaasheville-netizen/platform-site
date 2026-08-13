@@ -32,6 +32,12 @@
 <p class="hint">Username: <code>demo</code> &nbsp; Password: <code>DemoTryMe2026</code></p>
 </div>
 
+<div class="cta-box">
+<h2>Ready to dive right in?</h2>
+<p>If you'd rather skip the demo and jump straight into using this for real, get in touch about joining the pilot program — it's a small group right now, but we'll get you set up with your own web address and walk you through the rest.</p>
+<button type="button" class="button" id="contact-open-btn">Get in touch</button>
+</div>
+
 <h2>What this site does for you</h2>
 <p>Customers come to your site, find their own photos in a race or event gallery — usually by searching their bib number — and buy digital downloads or prints, all without you lifting a finger. You upload the photos once; the site handles bib-number matching, watermarking, checkout, and even follow-up emails automatically. Your job is uploading photos, organizing them by event, and occasionally checking in on orders.</p>
 
@@ -143,6 +149,97 @@
 &copy; <span id="year"></span> Imassoft.com
 </footer>
 <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+
+<div class="modal-overlay" id="contact-overlay">
+<div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="contact-modal-title">
+<button type="button" class="modal-close" id="contact-close-btn" aria-label="Close">&times;</button>
+<h2 id="contact-modal-title">Get in touch</h2>
+<p class="modal-lede">Tell us a bit about what you shoot and we'll follow up about getting your own site set up.</p>
+<form id="contact-form" class="contact-form" action="https://formsubmit.co/Steve@iconmediaasheville.com" method="POST">
+<input type="hidden" name="_subject" value="New pilot program inquiry">
+<input type="hidden" name="_template" value="table">
+<input type="hidden" name="_captcha" value="false">
+<input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+<label>Name
+<input type="text" name="name" required>
+</label>
+<label>Email
+<input type="email" name="email" required>
+</label>
+<label>Phone <span class="optional">(optional)</span>
+<input type="tel" name="phone">
+</label>
+<label>What do you shoot, and what would you like to know?
+<textarea name="message" rows="4" required></textarea>
+</label>
+<button type="submit" class="button">Send</button>
+</form>
+<p class="contact-status" id="contact-status" role="status"></p>
+</div>
+</div>
+
+<script>
+(function () {
+var openBtn = document.getElementById('contact-open-btn');
+var overlay = document.getElementById('contact-overlay');
+var closeBtn = document.getElementById('contact-close-btn');
+var form = document.getElementById('contact-form');
+var statusEl = document.getElementById('contact-status');
+var AJAX_URL = 'https://formsubmit.co/ajax/Steve@iconmediaasheville.com';
+
+function openModal() {
+overlay.classList.add('open');
+document.body.style.overflow = 'hidden';
+var first = form.querySelector('input[name="name"]');
+if (first) setTimeout(function () { first.focus(); }, 50);
+}
+
+function closeModal() {
+overlay.classList.remove('open');
+document.body.style.overflow = '';
+}
+
+openBtn.addEventListener('click', openModal);
+closeBtn.addEventListener('click', closeModal);
+overlay.addEventListener('click', function (e) {
+if (e.target === overlay) closeModal();
+});
+document.addEventListener('keydown', function (e) {
+if (e.key === 'Escape' && overlay.classList.contains('open')) closeModal();
+});
+
+form.addEventListener('submit', function (e) {
+e.preventDefault();
+if (form.querySelector('[name="_honey"]').value) return;
+
+var btn = form.querySelector('button[type="submit"]');
+btn.disabled = true;
+btn.textContent = 'Sending...';
+statusEl.textContent = '';
+statusEl.className = 'contact-status';
+
+fetch(AJAX_URL, {
+method: 'POST',
+headers: { Accept: 'application/json' },
+body: new FormData(form)
+})
+.then(function (r) { return r.json().then(function (data) { return { ok: r.ok, data: data }; }); })
+.then(function (res) {
+if (!res.ok) throw new Error((res.data && res.data.message) || 'Send failed');
+form.reset();
+form.hidden = true;
+statusEl.textContent = "Thanks — that's on its way. We'll be in touch soon.";
+statusEl.className = 'contact-status success';
+})
+.catch(function () {
+statusEl.textContent = 'Something went wrong — mind emailing Steve@iconmediaasheville.com directly?';
+statusEl.className = 'contact-status error';
+btn.disabled = false;
+btn.textContent = 'Send';
+});
+});
+})();
+</script>
 <script>
 (function () {
 var toggle = document.getElementById('nav-toggle');
@@ -152,157 +249,6 @@ toggle.addEventListener('click', function () {
 var isOpen = nav.classList.toggle('open');
 toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
 });
-})();
-</script>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Getting Started: Running Your Photo Site</title>
-<meta name="description" content="A plain-English walkthrough for photographers using this platform to sell race and event photos.">
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
-<header class="site-header">
-  <div class="site-header-inner">
-    <a class="brand" href="index.html">Icon Media Platform</a>
-        <button type="button" id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Menu"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
-    <nav id="site-nav">
-      <a href="index.html">Home</a>
-      <a href="guide.html">Getting Started Guide</a>
-      <a href="admin-reference.html">Admin Reference</a>
-      <a href="faq.html">FAQ</a>
-    </nav>
-  </div>
-</header>
-
-<main>
-  <h1>Getting Started: Running Your Photo Site</h1>
-  <p class="lede">A plain-English walkthrough for photographers using this platform to sell race and event photos. No technical background needed — if you can use email, you can run this site.</p>
-
-  <h2>What this site does for you</h2>
-  <p>Customers come to your site, find their own photos in a race or event gallery — usually by searching their bib number — and buy digital downloads or prints, all without you lifting a finger. You upload the photos once; the site handles bib-number matching, watermarking, checkout, and even follow-up emails automatically. Your job is uploading photos, organizing them by event, and occasionally checking in on orders.</p>
-
-  <h2>Logging in</h2>
-  <p>Your site has an admin panel that only you (and anyone you invite) can see. Go to <code>yoursite.com/admin/login</code> and sign in with the username and password you were given. Everything described below happens inside this admin panel, reachable from the menu at the top of every admin page.</p>
-  <p>If you ever forget your password, contact whoever set up your site — passwords can't be recovered automatically for security reasons, but they can be reset for you.</p>
-
-  <h2>Before your first event: a quick setup pass</h2>
-  <p>You won't need to touch most of this again once it's set, but it's worth doing in order the first time.</p>
-  <ol class="step-list">
-    <li><strong>Branding.</strong> Go to Branding in the admin menu and add your site name, logo, and business/return address (this address shows up on shipping labels if you sell prints). Add your social media links here too if you want them shown on your gallery pages.</li>
-    <li><strong>Packages and pricing.</strong> Go to Packages to set up what you're selling — for example, "5 digital photos for $25" or "1 print + 1 digital photo for $15." You can also sell single prints or single digital downloads without a package; those are configured under Print Options and Download Sizes.</li>
-    <li><strong>Print labs (only if you sell prints).</strong> If you're fulfilling physical prints, add your print lab's name and address under Branding &rarr; Print labs. When you mark an order's prints as fulfilled later, you'll pick the lab that handled it, and its address automatically appears as the return address on the customer's shipping confirmation email.</li>
-    <li><strong>Staff accounts (optional).</strong> If someone else helps you run the site — another photographer, an assistant — give them their own login under Users instead of sharing yours. "Staff" can do everything except touch Branding, Print labs, or add other users; "Full admin" can do everything you can.</li>
-  </ol>
-
-  <h2>Setting up your first event</h2>
-  <p>Events are organized in two layers: <strong>Folders</strong> hold everything from one event, and <strong>Galleries</strong> are the individual photo sets inside a folder (for example, a folder called "Fall 5K" might hold separate galleries for the start line, finish line, and awards ceremony).</p>
-  <p><strong>Fastest way to set up a whole event at once:</strong> go to Folders &rarr; New Folder, type the event name, and in the same form list out the names of every gallery you want inside it (one per line). The site creates the folder and every gallery in one step, ready for you to start uploading into.</p>
-  <p><strong>Or build it one piece at a time:</strong> create the folder first, then go to Galleries &rarr; New Gallery and assign each new gallery to that folder as you go.</p>
-
-  <h2>Uploading photos</h2>
-  <p>Open a gallery and use the upload button — you can select thousands of photos at once. Upload happens in a separate tab, so you're free to keep working while it processes; a progress bar shows you what's done, what failed, and what got skipped.</p>
-  <p>A few things happen automatically the moment photos land:</p>
-  <ul>
-    <li><strong>Bib numbers are read automatically.</strong> If your site has this turned on, every photo is scanned for a visible bib number and tagged with it — this is what powers customer search. It's worth a quick glance through a new gallery afterward, since a blurry or angled bib can occasionally get misread; you can fix any tag by hand right on the photo's thumbnail.</li>
-    <li><strong>A watermark is applied</strong> to preview images (if you've turned watermarking on for that gallery), so customers can browse before buying without giving away full-resolution copies for free.</li>
-    <li><strong>A cover photo</strong> is picked automatically at random for the gallery's thumbnail on your Galleries page, unless you check the "Cover photo" box on a specific photo to always use that one.</li>
-  </ul>
-
-  <h2>Adding participant names from a spreadsheet (optional)</h2>
-  <p>If you have a spreadsheet mapping bib/plate numbers to participant names — common if a race's timing company gives you one — you can upload it on any gallery's edit page under "Add names from a CSV." It adds each name as a searchable tag right alongside that bib number, so customers can find their photos by searching either their bib number or their own name.</p>
-  <p>It only tags photos that already exist in the gallery at the moment you upload it — anything added afterward won't automatically get a name. To handle that, check "Save this list for reuse on other galleries later this season" when you upload it and give it a label (like the race name). It then shows up in a dropdown, "Or use a saved list," on every gallery's edit page — including the one you're already in — so if more photos come in later, or you just forgot to run it, pick the saved list and click "Apply to this gallery" again. It's safe to reapply anytime: photos already tagged with a name are skipped, so this only catches ones that newly match. Delete a saved list from the same dropdown once you're done with it for the season.</p>
-
-  <h2>Uploading from your computer (optional desktop app)</h2>
-  <p>For very large batches — thousands of photos from a single race day — there's also a desktop app you can install instead of uploading through the browser. It logs in with the same admin username and password, lets you drag in a whole folder of photos, and uploads them in the background while you keep working on other things.</p>
-  <p>The main advantage over browser uploading: if your internet connection drops partway through (common at outdoor race venues on spotty wifi), it automatically resumes right where it left off — even if you closed the app or restarted your computer — instead of you having to start the batch over. It uploads in small chunks and safely skips anything that already made it through, so nothing gets duplicated.</p>
-  <p>This is entirely optional — uploading through the browser works fine for smaller batches.</p>
-
-  <div class="cta-box">
-    <h2>Download the desktop uploader</h2>
-    <p>Available for Windows and Mac. Free, and only needs to be installed once.</p>
-    <a class="button" href="https://github.com/iconmediaasheville-netizen/platform-site/releases/latest/download/IconMediaUploaderSetup.exe">Download for Windows</a>
-    <a class="button" href="https://github.com/iconmediaasheville-netizen/platform-site/releases/latest/download/IconMediaUploaderSetup.dmg">Download for Mac</a>
-    <p class="hint">First time opening it on a Mac: right-click the app and choose "Open" instead of double-clicking — Mac shows a one-time security warning for apps like this that aren't from the App Store.</p>
-  </div>
-
-  <h3>Setting it up</h3>
-  <ol class="step-list">
-    <li><strong>Run the installer.</strong> Double-click the downloaded file and follow the prompts. It adds a normal desktop and Start Menu shortcut — no technical setup needed.</li>
-    <li><strong>Open "Icon Media Uploader."</strong> The first time it opens, log in with your site's URL (e.g. <code>https://yoursite.com</code>) and your usual admin username and password. Check "Remember me" so you don't have to log in every time.</li>
-  </ol>
-
-  <h3>Using it</h3>
-  <ol class="step-list">
-    <li><strong>Pick a gallery.</strong> Click into the Gallery field and start typing — it filters the list live as you type, so you don't have to scroll through every gallery on the site to find the one you want. Use the ↻ Refresh button if you just created a gallery on the website and don't see it yet, or the "+ New gallery" link to create one without leaving the app.</li>
-    <li><strong>Pick a folder within the gallery (optional).</strong> If the gallery has sub-folders set up (like "Start Line" or "Finish Line"), choose one here — or leave it as "unsorted."</li>
-    <li><strong>Choose your photos.</strong> "Choose a folder…" grabs every photo inside a folder on your computer at once; "Or choose individual files…" lets you hand-pick specific ones.</li>
-    <li><strong>Hit Start upload.</strong> A progress bar tracks batches as they go. You're free to minimize the app or keep working — it uploads in the background.</li>
-    <li><strong>If it gets interrupted</strong> — wifi drops, laptop sleeps, you close the app — just reopen it later. A banner offers to Resume exactly where it left off.</li>
-  </ol>
-  <p class="hint">Keep "Skip" selected for duplicate handling (it's the default) — that's what makes resuming completely safe without creating duplicate photos.</p>
-
-  <h2>How customers find and buy their photos</h2>
-  <p>This is the part that runs itself once photos are uploaded:</p>
-  <ol class="step-list">
-    <li>A customer visits your Galleries page (or a direct link you share), finds the right event, and opens the gallery or folder.</li>
-    <li>They search their bib number — or several at once, separated by commas, handy for a family or team all searching together — or upload a selfie if you have face search turned on.</li>
-    <li>Matching photos appear. They add the ones they want to their cart, choosing a package, print, or digital download.</li>
-    <li>Checkout is handled securely through Stripe. Once payment goes through, they're immediately shown their download links and, if they bought prints, a note that prints are on the way.</li>
-    <li>They also get those same download links by email automatically, plus a link they can use anytime later to check on their print order's shipping status — no need to email you and wait for a reply.</li>
-  </ol>
-  <p>If a customer searches for their bib number and comes up empty (maybe their photos haven't been uploaded yet), they can leave their email and bib number for a "notify me" alert — the site emails them automatically the moment a matching photo is uploaded, even days later.</p>
-  <p>If a customer loses their download email entirely, point them to <code>yoursite.com/resend</code> — they enter their email, and the site automatically re-sends the download links from their most recent order. You never have to manually dig one up.</p>
-  <p>For free-download galleries (like a "backdoor" link you hand off to a race director), the first person to grab the whole gallery as one ZIP will see a simple progress page while it's built — for a few hundred large photos this can take several minutes, and it's completely safe to leave that tab open in the background or come back to the same link later. Once it's built once, that exact download becomes instant for anyone else who uses the same link.</p>
-
-  <h2>Checking in on orders</h2>
-  <p>Go to Orders to see every sale, most recent first. Unfulfilled print orders are highlighted in red so they're impossible to miss. From an order card you can:</p>
-  <ul>
-    <li><strong>Mark prints as fulfilled</strong> — enter tracking info, pick which print lab handled it, and the customer automatically gets a shipping confirmation email.</li>
-    <li><strong>Resend the confirmation email</strong> — useful if a customer says it never arrived.</li>
-    <li><strong>Download any photo directly</strong> — no need to place a test order to grab a copy for yourself.</li>
-    <li><strong>Export contact info</strong> — download every customer's name/email/phone as a spreadsheet, handy for a mailing list or follow-up.</li>
-  </ul>
-  <p>The Orders and Messages links in the admin menu show a small red number badge whenever there's something new you haven't looked at yet — an easy way to tell at a glance if anything needs attention.</p>
-
-  <h2>Your Races &amp; Events page</h2>
-  <p>The public page that lists all your events (folders and any standalone galleries) can be sorted three ways: newest first, oldest first, or manually arranged exactly how you want by dragging entries into order — useful for pinning an upcoming race to the top regardless of when it was created.</p>
-
-  <h2>Cleaning up old events (optional, off by default)</h2>
-  <p>If you want to stop paying for storage on events from a year ago, the Auto-Delete page lets you schedule a folder or gallery for automatic deletion on a specific future date. You'll get a warning email a set number of days beforehand so you have a chance to change your mind, and nothing gets deleted unless you've explicitly turned this feature on — it does nothing at all by default.</p>
-
-  <h2>A day-to-day cheat sheet</h2>
-  <p>For a typical race weekend, this is roughly the order things happen in:</p>
-  <ol class="step-list">
-    <li>Before the event: create the folder and galleries (or do it same-day, right before uploading).</li>
-    <li>During/after the event: upload photos as they come in — no need to wait until you have everything.</li>
-    <li>Share the gallery or folder link with the race director, on social media, or however you reach participants.</li>
-    <li>Check Orders occasionally over the following days/weeks for print orders that need fulfilling.</li>
-    <li>Mark prints fulfilled as they ship.</li>
-    <li>Move on to the next event — nothing needs to be "closed out" or archived unless you want to.</li>
-  </ol>
-
-  <h2>Getting help</h2>
-  <p>If something looks broken, a customer reports a problem, or you just want to add a feature that isn't here yet, reach out to whoever set up your site for you.</p>
-</main>
-
-<footer class="site-footer">
-  &copy; <span id="year"></span> Imassoft.com
-</footer>
-<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-<script>
-(function () {
-  var toggle = document.getElementById('nav-toggle');
-  var nav = document.getElementById('site-nav');
-  if (!toggle || !nav) return;
-  toggle.addEventListener('click', function () {
-    var isOpen = nav.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-  });
 })();
 </script>
 </body>
