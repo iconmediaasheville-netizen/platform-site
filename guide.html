@@ -45,6 +45,16 @@
 <p>Your site has an admin panel that only you (and anyone you invite) can see. Go to <code>yoursite.com/admin/login</code> and sign in with the username and password you were given. Everything described below happens inside this admin panel, reachable from the menu at the top of every admin page.</p>
 <p>If you ever forget your password, contact whoever set up your site — passwords can't be recovered automatically for security reasons, but they can be reset for you.</p>
 
+<h2>Setting up Stripe (so payments land in your own account)</h2>
+<p>Every sale on your site runs through your own Stripe account — money goes straight to you, and this platform never touches it. Setting that up is a one-time, five-minute task, and it happens before your site goes live rather than inside the admin panel:</p>
+<p><strong>Why this matters:</strong> a lot of the platforms photographers already use quietly take a cut on top of your monthly fee. SmugMug takes 15% of your markup on every sale, on any plan that lets you sell. Zenfolio charges a 7% commerce fee on every fulfilled order. Here, Stripe's standard processing fee (2.9% + 30&cent;) is the only fee, full stop — no separate platform commission stacked on top, so more of every sale stays in your pocket.</p>
+<ol class="step-list">
+<li><strong>Create a free Stripe account</strong> at <a href="https://stripe.com" target="_blank">stripe.com</a>, using your own business or personal details and the bank account you want payouts sent to. There's no cost to sign up — Stripe only takes its standard processing fee (2.9% + 30&cent;) when a sale actually happens.</li>
+<li><strong>Grab your API keys.</strong> Once you're in, go to Developers &rarr; API keys in the Stripe dashboard and copy both the Publishable key and the Secret key.</li>
+<li><strong>Send both keys to whoever set up your site</strong> so they can wire them in before launch. Use a secure way to send them if you can — a password manager's share feature or a similar secure note beats plain email.</li>
+</ol>
+<p>After that, you don't need to touch Stripe again day-to-day. Payouts land in your bank account on Stripe's normal schedule (usually every 2 business days), and you can see every transaction, payout, and fee anytime by logging into stripe.com yourself. If your bank account or business details ever change, update them directly in your Stripe dashboard.</p>
+
 <h2>Before your first event: a quick setup pass</h2>
 <p>You won't need to touch most of this again once it's set, but it's worth doing in order the first time.</p>
 <ol class="step-list">
@@ -248,6 +258,20 @@ if (!toggle || !nav) return;
 toggle.addEventListener('click', function () {
 var isOpen = nav.classList.toggle('open');
 toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+});
+})();
+</script>
+
+<button type="button" id="back-to-top" aria-label="Back to top" style="display:none;position:fixed;bottom:24px;right:24px;width:44px;height:44px;border-radius:50%;background:var(--accent);color:#fff;border:none;font-size:20px;line-height:1;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,0.3);z-index:50;">&uarr;</button>
+<script>
+(function () {
+var topBtn = document.getElementById('back-to-top');
+if (!topBtn) return;
+window.addEventListener('scroll', function () {
+topBtn.style.display = window.scrollY > 400 ? 'block' : 'none';
+});
+topBtn.addEventListener('click', function () {
+window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 })();
 </script>
