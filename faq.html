@@ -219,5 +219,19 @@ toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
 });
 })();
 </script>
+
+<button type="button" id="back-to-top" aria-label="Back to top" style="display:none;position:fixed;bottom:24px;right:24px;width:44px;height:44px;border-radius:50%;background:var(--accent);color:#fff;border:none;font-size:20px;line-height:1;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,0.3);z-index:50;">&uarr;</button>
+<script>
+(function () {
+var topBtn = document.getElementById('back-to-top');
+if (!topBtn) return;
+window.addEventListener('scroll', function () {
+topBtn.style.display = window.scrollY > 400 ? 'block' : 'none';
+});
+topBtn.addEventListener('click', function () {
+window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+})();
+</script>
 </body>
 </html>
