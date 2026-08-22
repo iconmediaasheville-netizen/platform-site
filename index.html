@@ -10,12 +10,12 @@
 <body>
 <header class="site-header">
   <div class="site-header-inner">
-    <a class="brand" href="index.html">Imassoft</a>
-                <button type="button" id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="site-nav" aria-label="Menu"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
-          <nav id="site-nav">
+    <a class="brand" href="index.html">Imassoft v1.0</a>
+    <nav>
       <a href="index.html">Home</a>
       <a href="guide.html">Getting Started Guide</a>
-      <a href="admin-reference.html">Admin Reference</a>
+      <a href="admin-reference.html">Admin Reference (Sales Edition)</a>
+      <a href="portfolio-admin-reference.html">Admin Reference (Portfolio Edition)</a>
       <a href="faq.html">FAQ</a>
     </nav>
   </div>
@@ -117,7 +117,7 @@
 
 
 <footer class="site-footer">
-  &copy; <span id="year"></span> Imassoft.com
+  Imassoft v1.0 &middot; &copy; <span id="year"></span> Imassoft.com
 </footer>
 <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 <div class="modal-overlay" id="contact-overlay">
@@ -210,16 +210,18 @@
   });
 })();
 </script>
-<script>
-(function () {
-  var toggle = document.getElementById('nav-toggle');
-  var nav = document.getElementById('site-nav');
-  if (!toggle || !nav) return;
-  toggle.addEventListener('click', function () {
-    var isOpen = nav.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-  });
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/6a7c911c5f93201d47deeb9a/1jvr9dlh1';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
 })();
 </script>
+<!--End of Tawk.to Script-->
 </body>
 </html>
