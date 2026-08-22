@@ -344,8 +344,12 @@
 <dd>Creates a new staff login with a username, password, and role. "Staff" can do everything except Branding, Print labs, Email Status, and this Users page; "Full admin" can do everything you can.</dd>
 <dt>Make staff / Make full admin</dt>
 <dd>Switches that user's role between the two access levels.</dd>
+<dt>Protect this account / Remove protection</dt>
+<dd>Only shown while you're logged in with your original .env-based login (not a named account). Marks that user as protected — once protected, no other full admin can demote, rename, reset the password on, or delete that account; only you (via your original login) or the account holder themselves can. A protected user shows a "(protected)" tag next to their name.</dd>
 <dt>Delete (on a user)</dt>
-<dd>Removes that user's login entirely — they can no longer sign in.</dd>
+<dd>Removes that user's login entirely — they can no longer sign in. Blocked on a protected account unless you're logged in as its original .env login.</dd>
+<dt>Set username (Change username)</dt>
+<dd>Lets that user change their own login name — useful if they'd rather have something more personal or memorable than what was set when the account was created.</dd>
 <dt>Set password (Reset password)</dt>
 <dd>Sets a new password for that user — useful if they forget theirs.</dd>
 </dl>
